@@ -20,22 +20,29 @@ macro define NUM_CORES 2
 b *0xDF008CE6
 task_create_log
 
-b *0xE06170EC
+b *0xE0617620
 assert_log
 
+# TODO: invalid? check this
 b *0xDF008284
 register_interrupt_log
 
-b *0xE04E6FF0
+# TODO: check this
+b *0xE04E70CC
 register_func_log
 
-b *0xDF00A1FA
+# TODO: check this
+b *0xE04BDD8E
+call_by_name_log
+
+# TODO: invalid? check this
+b *0xDF00A632
 CreateStateObject_log
 
-b *0xE01F67AA
+b *0xE01F67AE
 mpu_send_log
 
-b *0xE0644786
+b *0xE0644CBA
 mpu_recv_log
 
 cont
