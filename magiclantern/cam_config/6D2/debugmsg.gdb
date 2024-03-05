@@ -4,9 +4,9 @@
 source -v debug-logging.gdb
 
 # To get debugging symbols from Magic Lantern, uncomment one of these:
-#symbol-file ../magic-lantern/platform/6D2.103/magiclantern
-#symbol-file ../magic-lantern/platform/6D2.103/autoexec
-#symbol-file ../magic-lantern/platform/6D2.103/stubs.o
+#symbol-file ../magic-lantern/platform/6D2.111/magiclantern
+#symbol-file ../magic-lantern/platform/6D2.111/autoexec
+#symbol-file ../magic-lantern/platform/6D2.111/stubs.o
 
 macro define CURRENT_TASK 0x1028
 macro define CURRENT_ISR  (MEM(0x100C) ? MEM(0x1010) : 0)
@@ -23,21 +23,19 @@ task_create_log
 b *0xE0617620
 assert_log
 
-# TODO: invalid? check this
 b *0xDF008284
 register_interrupt_log
 
-# TODO: check this
-b *0xE04E70CC
+b *0xE04E73B8
 register_func_log
 
 # TODO: check this
-b *0xE04BDD8E
+b *0xE04E7432
 call_by_name_log
 
 # TODO: invalid? check this
-b *0xDF00A632
-CreateStateObject_log
+#b *0xDF00A1FA
+#CreateStateObject_log
 
 b *0xE01F67AE
 mpu_send_log
